@@ -79,8 +79,8 @@
                 background-color: #FFF3EA;
 				font-family: nouv;
 				font-size: 8px;
+				text-rendering:;
 				color: #000;
-				text-align: center;
                 user-select: none;
             }
 
@@ -126,10 +126,33 @@
             <div class="icon" ondblclick="openWindow('aboutme-window')"><img src="icon/file.png">About Me</div>
             <div class="icon" id="eyeguy-icon" ondblclick="openWindow('eyeguy-window')"><img src="icon/eyeguy.png">Eye Guy</div>
             <div class="icon" id="kuchipatchi-icon" ondblclick="openWindow('kuchipatchi-window')"><img src="icon/kuchipatchi.png">Kuchipatchi</div>
+            <div class="icon" id="jp-icon" ondblclick="openWindow('jp-window')"><img src="icon/jp.png">Jurassic Park Truck</div>
             <div class="icon"><img src="icon/wastefellow.png">Wastefellow</div>
         </div>
 
 		<!--Define Apps-->
+
+		<div id="aboutme-window" class="window" style="max-width: 25%;">
+            <div class="windowtitle" id="aboutme-windowtitle"> 
+                About Me <div class="windowclosebtn" onclick="closeWindow(this)"></div>
+            </div>
+			<a contenteditable="true">Yo! My name's David. I'm a software engineer living in Richardson, TX with my lovely wife Robyn and our dog Kevin.
+			</a>
+			<p contenteditable="true"> I love making things. </p>
+
+			<p contenteditable="true">There's something so amazing about happening across a germ of an idea in your thoughts, 
+			nursing that idea until you sort of know how you might be able to make it, and then slowly watching it become real as you
+			put it together. Then, in the end, getting to introduce something brand new into the world solely from that little idea, 
+			a one-of-a-kind something that never would have existed if you didn't bring it here and give it life. </p>
+
+			<p contenteditable="true">Reading this out it really sounds like I'm talking about having a baby, huh? whoops</p> 
+
+
+			<p contenteditable="true">This site showcases some of my babies.  </p>
+
+			<p contenteditable="true">Thanks for visiting! </p>
+
+		</div>
 
         <div id="eyeguy-window" class="window">
             <div class="windowtitle" id="eyeguy-windowtitle"> 
@@ -139,14 +162,6 @@
             <iframe width="560" height="315" src="https://www.youtube.com/embed/78fvwOteLCc" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
         </div>
 
-		<div id="aboutme-window" class="window">
-            <div class="windowtitle" id="aboutme-windowtitle"> 
-                About Me 
-                <div class="windowclosebtn" onclick="closeWindow(this)"></div>
-            </div>
-			<a>David Boren</a>
-			<a>It's Me</a>
-		</div>
 
         <div id="kuchipatchi-window" class="window">
             <div class="windowtitle" id="kuchipatchi-windowtitle"> 
@@ -155,6 +170,15 @@
             </div>
 		<iframe width="560" height="315" src="https://www.youtube.com/embed/_wBKRQK_Ggk" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 		</div>
+
+        <div id="jp-window" class="window">
+            <div class="windowtitle" id="jp-windowtitle"> 
+               	Jurassic Park Truck 
+                <div class="windowclosebtn" onclick="closeWindow(this)"></div>
+            </div>
+			<iframe width="560" height="315" src="https://www.youtube.com/embed/OlD9mohLjTw" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+        </div>
+
 
     <script>
         <!--Clock-->
