@@ -15,7 +15,7 @@
             }
             @font-face {
                 font-family: chi;
-                src: url('fonts/ChiKareGo.ttf');
+                src: url('fonts/ChiKareGo2.ttf');
             }
             @font-face {
                 font-family: dpcomic;
@@ -31,6 +31,7 @@
                 gap: 16px;
                 padding:0px 4px 0px 4px;
                 height: 24px;
+                position:relative;
 
                 font-family: dpcomic;
                 font-size: 20px;
@@ -40,6 +41,8 @@
                 border-style: solid;
                 border-width: 2px;
                 border-color: #CCC #BBB #999 #BBB;
+
+                z-index: 12;
             }
             .navbar div:hover {
                 filter:brightness(120%);
@@ -67,16 +70,44 @@
             }
 
             .window {
+				display:none;
                 position: absolute;
+				top:25%;
+				left:25%;
                 z-index: 9;
-                background-color: #BBB;
+
+                background-color: #FFF;
+				font-family: nouv;
+				font-size: 8px;
+				color: #000;
+                user-select: none;
             }
 
             .windowtitle { 
-                user-select: none;
                 z-index:10;
                 background-color: #AAA;
+                font-family:chi;
+                text-align: center;
+                font-size:16px;
+                border-style: solid;
+                border-width: 2px;
+                border-color: #CCC #999 #999 #CCC;
             }
+
+            .windowclosebtn {
+                float:left;
+                width: 8px;
+                height: 12px;
+                padding: 0px 2px 0px 2px;
+				background-color: #BBB;
+                border-style: solid;
+                border-width: 2px;
+                border-color: #555 #999 #999 #555;
+            }
+
+            .windowclosebtn:hover {
+				filter:brightness(120%);
+			}
 
         </style>
     </head>
@@ -91,13 +122,32 @@
         </div>
 
         <div class="iconzone">
-            <div class="icon"><img src="icon/file.png">About Me</div>
-            <div class="icon"><img src="icon/eyeguy.png">Eye Guy</div>
+            <div class="icon" ondblclick="openWindow('aboutme-window')"><img src="icon/file.png">About Me</div>
+            <div class="icon" id="eyeguy-icon" ondblclick="openWindow('eyeguy-window')"><img src="icon/eyeguy.png">Eye Guy</div>
             <div class="icon"><img src="icon/kuchipatchi.png">Kuchipatchi</div>
             <div class="icon"><img src="icon/wastefellow.png">Wastefellow</div>
         </div>
 
+		<!--Define Apps-->
+
+        <div id="eyeguy-window" class="window">
+            <div class="windowtitle" id="eyeguy-windowtitle"> 
+                Eye Guy 
+                <div class="windowclosebtn" onclick="closeWindow(this)"></div>
+            </div>
+            <iframe width="560" height="315" src="https://www.youtube.com/embed/78fvwOteLCc" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+        </div>
+
+		<div id="aboutme-window" class="window">
+            <div class="windowtitle" id="aboutme-windowtitle"> 
+                About Me 
+                <div class="windowclosebtn" onclick="closeWindow(this)"></div>
+            </div>
+			Doxed
+		</div>
+
     <script>
+        <!--Clock-->
         function getTime() {
             const today = new Date();
             let h = today.getHours();
@@ -118,6 +168,61 @@
             if (i < 10) { i = "0" + i };
             return i;
         }
+
+        <!--Windows-->
+        dragElement(document.getElementById("eyeguy-window"));
+
+        function dragElement(elmnt) {
+            var pos1 = 0, pos2 = 0, pos3 = 0, pos4 = 0;
+            if (document.getElementById(elmnt.id + "title")) {
+                document.getElementById(elmnt.id + "title").onmousedown = dragMouseDown; 
+            }
+            else {
+                elmnt.onmousedown = dragMouseDown;
+            }
+        }
+
+        function dragMouseDown(e) {
+            e = e || window.event;
+            e.preventDefault();
+            pos3 = e.clientX;
+            pos4 = e.clientY;
+            document.onmouseup= closeDragElement;
+            document.onmousemove = elementDrag;
+        }
+
+        function elementDrag(e){
+            e = e || window.event;
+            e.preventDefault();
+
+            pos1 = pos3 - e.clientX;
+            pos2 = pos4 - e.clientY;
+            pos3 = e.clientX;
+            pos4 = e.clientY;
+
+            elmnt = document.getElementById("eyeguy-window");
+
+            elmnt.style.top = ((elmnt.offsetTop - pos2) < 28 ? 28 :elmnt.offsetTop - pos2 ) + "px";
+            elmnt.style.left = (elmnt.offsetLeft - pos1) + "px";
+        }
+
+        function closeDragElement() {
+            document.onmouseup = null;
+            document.onmousemove = null;
+        }
+
+		function openWindow(elemName){
+			var wdw = document.getElementById(elemName);
+			wdw.style.display = "block";
+			wdw.style.top = "25%";
+			wdw.style.left = "25%";
+		}
+
+        function closeWindow(elem){
+			var wdw = elem.parentNode.parentNode;
+			wdw.style.display = "none";
+        }
+
     </script>
     </body>
 </html>
