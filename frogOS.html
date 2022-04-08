@@ -76,10 +76,11 @@
 				left:25%;
                 z-index: 9;
 
-                background-color: #FFF;
+                background-color: #FFF3EA;
 				font-family: nouv;
 				font-size: 8px;
 				color: #000;
+				text-align: center;
                 user-select: none;
             }
 
@@ -124,7 +125,7 @@
         <div class="iconzone">
             <div class="icon" ondblclick="openWindow('aboutme-window')"><img src="icon/file.png">About Me</div>
             <div class="icon" id="eyeguy-icon" ondblclick="openWindow('eyeguy-window')"><img src="icon/eyeguy.png">Eye Guy</div>
-            <div class="icon"><img src="icon/kuchipatchi.png">Kuchipatchi</div>
+            <div class="icon" id="kuchipatchi-icon" ondblclick="openWindow('kuchipatchi-window')"><img src="icon/kuchipatchi.png">Kuchipatchi</div>
             <div class="icon"><img src="icon/wastefellow.png">Wastefellow</div>
         </div>
 
@@ -143,7 +144,16 @@
                 About Me 
                 <div class="windowclosebtn" onclick="closeWindow(this)"></div>
             </div>
-			Doxed
+			<a>David Boren</a>
+			<a>It's Me</a>
+		</div>
+
+        <div id="kuchipatchi-window" class="window">
+            <div class="windowtitle" id="kuchipatchi-windowtitle"> 
+                Kuchipatchi 
+                <div class="windowclosebtn" onclick="closeWindow(this)"></div>
+            </div>
+		<iframe width="560" height="315" src="https://www.youtube.com/embed/_wBKRQK_Ggk" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 		</div>
 
     <script>
@@ -170,7 +180,10 @@
         }
 
         <!--Windows-->
-        dragElement(document.getElementById("eyeguy-window"));
+		var allWindows = document.getElementsByClassName('window');
+		for (var i=0; i< allWindows.length; i++){
+			dragElement(allWindows[i]);
+		}
 
         function dragElement(elmnt) {
             var pos1 = 0, pos2 = 0, pos3 = 0, pos4 = 0;
@@ -180,36 +193,35 @@
             else {
                 elmnt.onmousedown = dragMouseDown;
             }
-        }
 
-        function dragMouseDown(e) {
-            e = e || window.event;
-            e.preventDefault();
-            pos3 = e.clientX;
-            pos4 = e.clientY;
-            document.onmouseup= closeDragElement;
-            document.onmousemove = elementDrag;
-        }
+			function dragMouseDown(e) {
+				e = e || window.event;
+				e.preventDefault();
+				pos3 = e.clientX;
+				pos4 = e.clientY;
+				document.onmouseup= closeDragElement;
+				document.onmousemove = elementDrag;
+			}
 
-        function elementDrag(e){
-            e = e || window.event;
-            e.preventDefault();
+			function elementDrag(e){
+				e = e || window.event;
+				e.preventDefault();
 
-            pos1 = pos3 - e.clientX;
-            pos2 = pos4 - e.clientY;
-            pos3 = e.clientX;
-            pos4 = e.clientY;
+				pos1 = pos3 - e.clientX;
+				pos2 = pos4 - e.clientY;
+				pos3 = e.clientX;
+				pos4 = e.clientY;
 
-            elmnt = document.getElementById("eyeguy-window");
 
-            elmnt.style.top = ((elmnt.offsetTop - pos2) < 28 ? 28 :elmnt.offsetTop - pos2 ) + "px";
-            elmnt.style.left = (elmnt.offsetLeft - pos1) + "px";
-        }
+				elmnt.style.top = ((elmnt.offsetTop - pos2) < 28 ? 28 :elmnt.offsetTop - pos2 ) + "px";
+				elmnt.style.left = (elmnt.offsetLeft - pos1) + "px";
+			}
 
-        function closeDragElement() {
-            document.onmouseup = null;
-            document.onmousemove = null;
-        }
+			function closeDragElement() {
+				document.onmouseup = null;
+				document.onmousemove = null;
+			}
+		}
 
 		function openWindow(elemName){
 			var wdw = document.getElementById(elemName);
