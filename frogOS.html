@@ -1,0 +1,123 @@
+<html>
+    <head>
+        <style>
+            body {
+                background-image: url('bg.png');
+                margin: 0;
+            }
+
+            img {
+                image-rendering: pixelated;
+            }
+            @font-face {
+                font-family:nouv;
+                src: url('fonts/px_sans_nouveaux.ttf')
+            }
+            @font-face {
+                font-family: chi;
+                src: url('fonts/ChiKareGo.ttf');
+            }
+            @font-face {
+                font-family: dpcomic;
+                src: url('fonts/dpcomic.regular.ttf');
+            }
+
+            .navbar {
+                background-color: #BBB;
+
+                display: flex;
+                justify-items: flex-start;
+                align-items: center;
+                gap: 16px;
+                padding:0px 4px 0px 4px;
+                height: 24px;
+
+                font-family: dpcomic;
+                font-size: 20px;
+                text-shadow: 1px 1px #777;
+                user-select: none;
+
+                border-style: solid;
+                border-width: 2px;
+                border-color: #CCC #BBB #999 #BBB;
+            }
+            .navbar div:hover {
+                filter:brightness(120%);
+            }
+
+            .iconzone {
+                image-rendering: pixelated;
+                display: grid;
+                margin:32px 32px 0px 0px;
+                gap:16px;
+                float: right;
+            }
+
+            .icon {
+                user-select:none;
+                font-family: nouv;
+                font-size:8px;
+                text-align:center;
+                color: white;
+                width: 50px;
+            }
+
+            .icon:hover{
+                filter:hue-rotate(-30deg);  
+            }
+
+            .window {
+                position: absolute;
+                z-index: 9;
+                background-color: #BBB;
+            }
+
+            .windowtitle { 
+                user-select: none;
+                z-index:10;
+                background-color: #AAA;
+            }
+
+        </style>
+    </head>
+
+    <body onload="getTime()">
+        <div class="navbar">
+            <div><img src="icon/lily.png"></div>
+            <div>Applications</div>
+            <div>Settings</div>
+            <div >Help!!!</div>
+            <div id="clock" style="margin-left: auto"></div>
+        </div>
+
+        <div class="iconzone">
+            <div class="icon"><img src="icon/file.png">About Me</div>
+            <div class="icon"><img src="icon/eyeguy.png">Eye Guy</div>
+            <div class="icon"><img src="icon/kuchipatchi.png">Kuchipatchi</div>
+            <div class="icon"><img src="icon/wastefellow.png">Wastefellow</div>
+        </div>
+
+    <script>
+        function getTime() {
+            const today = new Date();
+            let h = today.getHours();
+            let m = today.getMinutes();
+            let suffix = " AM";
+
+            m = checkTime(m);
+
+            if(h > 12) {
+                h = h - 12;
+                suffix = " PM";
+            }
+            document.getElementById('clock').innerHTML = h + ":" + m + suffix;
+            setTimeout(getTime, 1000);
+        }
+
+        function checkTime(i) {
+            if (i < 10) { i = "0" + i };
+            return i;
+        }
+    </script>
+    </body>
+</html>
