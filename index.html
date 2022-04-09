@@ -157,9 +157,9 @@
         <div id="eyeguy-window" class="window">
             <div class="windowtitle" id="eyeguy-windowtitle"> 
                 Eye Guy 
-                <div class="windowclosebtn" onclick="closeWindow(this)"></div>
+                <div class="windowclosebtn" onclick="dragElement(closeWindow(this)); "></div>
             </div>
-            <iframe width="560" height="315" src="https://www.youtube.com/embed/78fvwOteLCc" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+            <iframe width="560" height="315" src="https://www.youtube.com/embed/78fvwOteLCc" frameborder="0" allowfullscreen></iframe>
         </div>
 
 
@@ -168,7 +168,7 @@
                 Kuchipatchi 
                 <div class="windowclosebtn" onclick="closeWindow(this)"></div>
             </div>
-		<iframe width="560" height="315" src="https://www.youtube.com/embed/_wBKRQK_Ggk" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+		<iframe width="560" height="315" src="https://www.youtube.com/embed/_wBKRQK_Ggk" frameborder="0" allowfullscreen></iframe>
 		</div>
 
         <div id="jp-window" class="window">
@@ -176,7 +176,7 @@
                	Jurassic Park Truck 
                 <div class="windowclosebtn" onclick="closeWindow(this)"></div>
             </div>
-			<iframe width="560" height="315" src="https://www.youtube.com/embed/OlD9mohLjTw" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+			<iframe width="560" height="315" src="https://www.youtube.com/embed/OlD9mohLjTw" frameborder="0" allowfullscreen></iframe>
         </div>
 
 
@@ -259,6 +259,15 @@
         function closeWindow(elem){
 			var wdw = elem.parentNode.parentNode;
 			wdw.style.display = "none";
+			if(wdw.innerHTML.includes("youtube")){
+				//Reset video 
+				wdw.innerHTML = wdw.innerHTML;
+				//Must return altered window element to make draggable anew
+				return wdw;
+			}
+			else {
+				return null;
+			}
         }
 
     </script>
