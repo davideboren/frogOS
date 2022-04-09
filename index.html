@@ -1,0 +1,266 @@
+<html>
+    <head>
+        <style>
+            body {
+                background-image: url('bg.png');
+                margin: 0;
+            }
+
+            img {
+                image-rendering: pixelated;
+            }
+            @font-face {
+                font-family:nouv;
+                src: url('fonts/px_sans_nouveaux.ttf')
+            }
+            @font-face {
+                font-family: chi;
+                src: url('fonts/ChiKareGo2.ttf');
+            }
+            @font-face {
+                font-family: dpcomic;
+                src: url('fonts/dpcomic.regular.ttf');
+            }
+
+            .navbar {
+                background-color: #BBB;
+
+                display: flex;
+                justify-items: flex-start;
+                align-items: center;
+                gap: 16px;
+                padding:0px 4px 0px 4px;
+                height: 24px;
+                position:relative;
+
+                font-family: dpcomic;
+                font-size: 20px;
+                text-shadow: 1px 1px #777;
+                user-select: none;
+
+                border-style: solid;
+                border-width: 2px;
+                border-color: #CCC #BBB #999 #BBB;
+
+                z-index: 12;
+            }
+            .navbar div:hover {
+                filter:brightness(120%);
+            }
+
+            .iconzone {
+                image-rendering: pixelated;
+                display: grid;
+                margin:32px 32px 0px 0px;
+                gap:16px;
+                float: right;
+            }
+
+            .icon {
+                user-select:none;
+                font-family: nouv;
+                font-size:8px;
+                text-align:center;
+                color: white;
+                width: 50px;
+            }
+
+            .icon:hover{
+                filter:hue-rotate(-30deg);  
+            }
+
+            .window {
+				display:none;
+                position: absolute;
+				top:25%;
+				left:25%;
+                z-index: 9;
+
+                background-color: #FFF3EA;
+				font-family: nouv;
+				font-size: 8px;
+				text-rendering:;
+				color: #000;
+                user-select: none;
+            }
+
+            .windowtitle { 
+                z-index:10;
+                background-color: #AAA;
+                font-family:chi;
+                text-align: center;
+                font-size:16px;
+                border-style: solid;
+                border-width: 2px;
+                border-color: #CCC #999 #999 #CCC;
+            }
+
+            .windowclosebtn {
+                float:left;
+                width: 8px;
+                height: 12px;
+                padding: 0px 2px 0px 2px;
+				background-color: #BBB;
+                border-style: solid;
+                border-width: 2px;
+                border-color: #555 #999 #999 #555;
+            }
+
+            .windowclosebtn:hover {
+				filter:brightness(120%);
+			}
+
+        </style>
+    </head>
+
+    <body onload="getTime()">
+        <div class="navbar">
+            <div><img src="icon/lily.png"></div>
+            <div>Applications</div>
+            <div>Settings</div>
+            <div >Help!!!</div>
+            <div id="clock" style="margin-left: auto"></div>
+        </div>
+
+        <div class="iconzone">
+            <div class="icon" ondblclick="openWindow('aboutme-window')"><img src="icon/file.png">About Me</div>
+            <div class="icon" id="eyeguy-icon" ondblclick="openWindow('eyeguy-window')"><img src="icon/eyeguy.png">Eye Guy</div>
+            <div class="icon" id="kuchipatchi-icon" ondblclick="openWindow('kuchipatchi-window')"><img src="icon/kuchipatchi.png">Kuchipatchi</div>
+            <div class="icon" id="jp-icon" ondblclick="openWindow('jp-window')"><img src="icon/jp.png">Jurassic Park Truck</div>
+            <div class="icon"><img src="icon/wastefellow.png">Wastefellow</div>
+        </div>
+
+		<!--Create Windows-->
+
+		<div id="aboutme-window" class="window" style="max-width: 25%;">
+            <div class="windowtitle" id="aboutme-windowtitle"> 
+                About Me <div class="windowclosebtn" onclick="closeWindow(this)"></div>
+            </div>
+			<a contenteditable="true">Yo! My name's David. I'm a software engineer living in Richardson, TX with my lovely wife Robyn and our dog Kevin.
+			</a>
+			<p contenteditable="true"> I love making things. </p>
+
+			<p contenteditable="true">There's something so amazing about happening across a germ of an idea in your thoughts, 
+			nursing that idea until you sort of know how you might be able to make it, and then slowly watching it become real as you
+			put it together. Then, in the end, getting to introduce something brand new into the world solely from that little idea, 
+			a one-of-a-kind something that never would have existed if you didn't bring it here and give it life. </p>
+
+			<p contenteditable="true">Reading this out it really sounds like I'm talking about having a baby, huh? whoops</p> 
+
+
+			<p contenteditable="true">This site showcases some of my babies.  </p>
+
+			<p contenteditable="true">Thanks for visiting! </p>
+
+		</div>
+
+        <div id="eyeguy-window" class="window">
+            <div class="windowtitle" id="eyeguy-windowtitle"> 
+                Eye Guy 
+                <div class="windowclosebtn" onclick="closeWindow(this)"></div>
+            </div>
+            <iframe width="560" height="315" src="https://www.youtube.com/embed/78fvwOteLCc" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+        </div>
+
+
+        <div id="kuchipatchi-window" class="window">
+            <div class="windowtitle" id="kuchipatchi-windowtitle"> 
+                Kuchipatchi 
+                <div class="windowclosebtn" onclick="closeWindow(this)"></div>
+            </div>
+		<iframe width="560" height="315" src="https://www.youtube.com/embed/_wBKRQK_Ggk" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+		</div>
+
+        <div id="jp-window" class="window">
+            <div class="windowtitle" id="jp-windowtitle"> 
+               	Jurassic Park Truck 
+                <div class="windowclosebtn" onclick="closeWindow(this)"></div>
+            </div>
+			<iframe width="560" height="315" src="https://www.youtube.com/embed/OlD9mohLjTw" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+        </div>
+
+
+    <script>
+        <!--Clock-->
+
+        function getTime() {
+            const today = new Date();
+            let h = today.getHours();
+            let m = today.getMinutes();
+            let suffix = " AM";
+
+            m = checkTime(m);
+
+            if(h > 12) {
+                h = h - 12;
+                suffix = " PM";
+            }
+            document.getElementById('clock').innerHTML = h + ":" + m + suffix;
+            setTimeout(getTime, 1000);
+        }
+
+        function checkTime(i) {
+            if (i < 10) { i = "0" + i };
+            return i;
+        }
+
+        <!--Windows-->
+
+		var allWindows = document.getElementsByClassName('window');
+		for (var i=0; i< allWindows.length; i++){
+			dragElement(allWindows[i]);
+		}
+
+        function dragElement(elmnt) {
+            var pos1 = 0, pos2 = 0, pos3 = 0, pos4 = 0;
+            if (document.getElementById(elmnt.id + "title")) {
+                document.getElementById(elmnt.id + "title").onmousedown = dragMouseDown; 
+            }
+            else {
+                elmnt.onmousedown = dragMouseDown;
+            }
+
+			function dragMouseDown(e) {
+				e = e || window.event;
+				e.preventDefault();
+				pos3 = e.clientX;
+				pos4 = e.clientY;
+				document.onmouseup= closeDragElement;
+				document.onmousemove = elementDrag;
+			}
+
+			function elementDrag(e){
+				e = e || window.event;
+				e.preventDefault();
+
+				pos1 = pos3 - e.clientX;
+				pos2 = pos4 - e.clientY;
+				pos3 = e.clientX;
+				pos4 = e.clientY;
+
+
+				elmnt.style.top = ((elmnt.offsetTop - pos2) < 28 ? 28 :elmnt.offsetTop - pos2 ) + "px";
+				elmnt.style.left = (elmnt.offsetLeft - pos1) + "px";
+			}
+
+			function closeDragElement() {
+				document.onmouseup = null;
+				document.onmousemove = null;
+			}
+		}
+
+		function openWindow(elemName){
+			var wdw = document.getElementById(elemName);
+			wdw.style.display = "block";
+			wdw.style.top = "25%";
+			wdw.style.left = "25%";
+		}
+
+        function closeWindow(elem){
+			var wdw = elem.parentNode.parentNode;
+			wdw.style.display = "none";
+        }
+
+    </script>
+    </body>
+</html>
