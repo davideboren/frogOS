@@ -44,9 +44,33 @@
 
                 z-index: 12;
             }
-            .navbar div:hover {
-                filter:brightness(120%);
-            }
+
+			.dropdown {
+				float: left;
+				overflow: hidden;
+			}
+
+			.dropdown-content {
+				display: none;
+				position:absolute;
+				background-color:#BBB;
+				margin-top:2px;
+				min-width:100px;
+			}
+
+			.dropdown-content a {
+				float:none;
+				display: block;
+				text-align: left;
+
+                border-style: solid;
+                border-width: 2px;
+                border-color: #999 #BBB #BBB #BBB;
+			}
+
+			.show-drop {
+				display: block;
+			}
 
             .iconzone {
                 image-rendering: pixelated;
@@ -119,9 +143,31 @@
 
     <body onload="getTime()">
         <div class="navbar">
-            <div><img src="icon/lily.png"></div>
-            <div>Applications</div>
-            <div>Settings</div>
+			<div class="dropdown">
+					<img class="dropdiv" onclick="dropDown('lilyDrop')" src="icon/lily.png">
+					<div id="lilyDrop" class="dropdown-content">
+						<a>Not</a>
+						<a>Done</a>
+						<a>Yet</a>
+					</div>
+			</div>
+
+			<div class="dropdown">
+					<div class="dropdiv" onclick="dropDown('appDrop')">Applications</div>
+					<div id="appDrop" class="dropdown-content">
+						<a>Not</a>
+						<a>Done</a>
+						<a>Yet</a>
+					</div>
+			</div>
+			<div class="dropdown">
+					<div class="dropdiv" onclick="dropDown('settingsDrop')">Settings</div>
+					<div id="settingsDrop" class="dropdown-content">
+						<a>Not</a>
+						<a>Done</a>
+						<a>Yet</a>
+					</div>
+			</div>
             <div >Help!!!</div>
             <div id="clock" style="margin-left: auto"></div>
         </div>
@@ -170,7 +216,7 @@
         <div id="kuchipatchi-window" class="window">
             <div class="windowtitle" id="kuchipatchi-windowtitle"> 
                 Kuchipatchi 
-                <div class="windowclosebtn" onclick="closeWindow(this)"></div>
+                <div class="windowclosebtn" onclick="dragElement(closeWindow(this))"></div>
             </div>
 		<iframe width="560" height="315" src="https://www.youtube.com/embed/_wBKRQK_Ggk" frameborder="0" allowfullscreen></iframe>
 		</div>
@@ -178,13 +224,33 @@
         <div id="jp-window" class="window">
             <div class="windowtitle" id="jp-windowtitle"> 
                	Jurassic Park Truck 
-                <div class="windowclosebtn" onclick="closeWindow(this)"></div>
+                <div class="windowclosebtn" onclick="dragElement(closeWindow(this))"></div>
             </div>
 			<iframe width="560" height="315" src="https://www.youtube.com/embed/OlD9mohLjTw" frameborder="0" allowfullscreen></iframe>
         </div>
 
 
     <script>
+		<!--Dropdowns-->
+		function rollUpAll(){
+			var allDropdowns = document.getElementsByClassName("show-drop");
+			for(let i = 0; i < allDropdowns.length; i++){
+				allDropdowns[i].classList.toggle("show-drop");
+			}
+		}
+
+		function dropDown(elem){
+			rollUpAll();
+			document.getElementById(elem).classList.toggle("show-drop");
+		}
+
+		window.onclick = function(e){
+			if(!e.target.matches('.dropdiv')){
+				rollUpAll();
+			}
+		}
+
+
         <!--Clock-->
 
         function getTime() {
