@@ -54,7 +54,7 @@
 				display: none;
 				position:absolute;
 				background-color:#BBB;
-				margin-top:2px;
+				margin-top:4px;
 				min-width:100px;
 			}
 
@@ -63,9 +63,15 @@
 				display: block;
 				text-align: left;
 
+				padding:0px 4px 0px 4px;
+
                 border-style: solid;
                 border-width: 2px;
-                border-color: #999 #BBB #BBB #BBB;
+                border-color: #BBB #BBB #999 #BBB;
+			}
+
+			.dropdown-content a:hover{
+				background-color:#AAA;
 			}
 
 			.show-drop {
@@ -106,10 +112,11 @@
 				text-rendering:;
 				color: #000;
                 user-select: none;
+
             }
 
 			.window p{
-				margin:4px;
+				margin:10px 4px 10px 4px;
 			}
 
             .windowtitle { 
@@ -122,6 +129,11 @@
                 border-width: 2px;
                 border-color: #CCC #999 #999 #CCC;
             }
+
+			.windowtitle a{
+				position:relative;
+				right:8px;
+			}
 
             .windowclosebtn {
                 float:left;
@@ -138,6 +150,35 @@
 				filter:brightness(120%);
 			}
 
+			.tabframe {
+				margin: 2px;
+				text-align: center;
+				color: #333;
+			}
+
+			.tabframe a {
+				font-family:chi;
+				font-size: 16px;
+				padding: 0px 6px 0px 6px;
+
+				border-style: solid;
+				border-width: 1px;
+				border-radius:3px;
+			}
+
+			.tabframe a:hover {
+				background-color:#EDD;
+			}
+
+			.tabcontent {
+				display:none;
+			}
+
+			.tabcontent p {
+				min-width:240px;
+				max-width:550px;
+			}
+
         </style>
     </head>
 
@@ -146,16 +187,14 @@
 			<div class="dropdown">
 					<img class="dropdiv" onclick="dropDown('lilyDrop')" src="icon/lily.png">
 					<div id="lilyDrop" class="dropdown-content">
-						<a>Not</a>
-						<a>Done</a>
-						<a>Yet</a>
+						<a>About This Site</a>
 					</div>
 			</div>
 
 			<div class="dropdown">
 					<div class="dropdiv" onclick="dropDown('appDrop')">Applications</div>
 					<div id="appDrop" class="dropdown-content">
-						<a>Not</a>
+						<a onclick="openWindow('eyeguy-window')">Eye Guy</a>
 						<a>Done</a>
 						<a>Yet</a>
 					</div>
@@ -168,7 +207,15 @@
 						<a>Yet</a>
 					</div>
 			</div>
-            <div >Help!!!</div>
+
+			<div class="dropdown">
+					<div class="dropdiv" onclick="dropDown('helpDrop')">Help!!!</div>
+					<div id="helpDrop" class="dropdown-content">
+						<a>No</a>
+						<a>Help</a>
+						<a>Yet</a>
+					</div>
+			</div>
             <div id="clock" style="margin-left: auto"></div>
         </div>
 
@@ -215,10 +262,20 @@
 
         <div id="kuchipatchi-window" class="window">
             <div class="windowtitle" id="kuchipatchi-windowtitle"> 
-                Kuchipatchi 
+                <a>Kuchipatchi</a>
                 <div class="windowclosebtn" onclick="dragElement(closeWindow(this))"></div>
             </div>
-		<iframe width="560" height="315" src="https://www.youtube.com/embed/_wBKRQK_Ggk" frameborder="0" allowfullscreen></iframe>
+			<div class="tabframe">
+				<a onclick="showTab(this, 'kuchipatchi-vid')">Video</a>
+				<a onclick="showTab(this, 'kuchipatchi-about')">About</a>
+			</div>
+			<iframe class="tabcontent" id="kuchipatchi-vid" style="display:block;" width="560" height="315" src="https://www.youtube.com/embed/_wBKRQK_Ggk" frameborder="0" allowfullscreen></iframe>
+			<div class="tabcontent" id="kuchipatchi-about">
+				<h1><center>Kuchipatchi</center></h1>
+				<hr style="margin:2px">
+				<p>I have a lifelong obsession with virtual pets. At the tail end of the rapidly dying V-Pet craze, my parents took me and my siblings to Toys-R-Us, and we happened upon a rack of Tamagotchis that were on clearance for a single dollar each. As a burgeoning tech freak growing up in the Pokemon age, the idea of a little creature in a tiny, self-contained electronic device I could put in my pocket was the coolest thing imaginable. This chance event sent me all the way down the virtual pet rabbit hole, which I have never left. Out of this love for e-monsters, I hatched the idea to create my own v-pet for my desk at work, a v-pet that would not require any care (thus distracting me from my workly duties), that I could watch grow up and evolve during the work day.</p> 
+				<p>Kuchipatchi (named for the first character sprite I was able to display on this hardware), is a handmade virtual pet built from a Teensy microcontroller, a 0.96" OLED display, and a 3D-printed shell, with code written in C++.</p>
+			</div>
 		</div>
 
         <div id="jp-window" class="window">
@@ -339,6 +396,18 @@
 				return null;
 			}
         }
+
+		function showTab(caller, id){
+			var chosentab = document.getElementById(id);
+			var allKids = Array.from(caller.parentNode.parentNode.children)
+			for (let i = 0; i < allKids.length; i++){
+				if(allKids[i] != chosentab && allKids[i].matches('.tabcontent')){
+					allKids[i].style.display = "none";
+				}
+			}
+
+			chosentab.style.display = "block";
+		}
 
     </script>
     </body>
