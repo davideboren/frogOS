@@ -180,6 +180,7 @@
 				display:none;
 				max-height:500px;
 				overflow-y:scroll;
+				max-width:552px;
 			}
 
 			.tabcontent p {
@@ -212,8 +213,8 @@
 			<div class="dropdown">
 					<div class="dropdiv" onclick="dropDown('settingsDrop')">Settings</div>
 					<div id="settingsDrop" class="dropdown-content">
-						<a>Not</a>
-						<a>Done</a>
+						<a>Nothing</a>
+						<a>Here</a>
 						<a>Yet</a>
 					</div>
 			</div>
@@ -235,6 +236,7 @@
             <div class="icon" id="kuchipatchi-icon" ondblclick="openWindow('kuchipatchi-window')"><img src="icon/kuchipatchi.png">Kuchipatchi</div>
             <div class="icon" id="jp-icon" ondblclick="openWindow('jp-window')"><img src="icon/jp.png">Jurassic Park Truck</div>
             <div class="icon" id="wf-icon" ondblclick="openWindow('wf-window')"><img src="icon/wastefellow.png">Wastefellow</div>
+            <div class="icon" id="fam-icon" ondblclick="openWindow('fam-window')"><img src="icon/img.png">the_fam.jpeg</div>
         </div>
 
 		<!--Create Windows-->
@@ -341,25 +343,99 @@
 				<a onclick="showTab(this, 'wf-vid')">Video</a>
 				<a onclick="showTab(this, 'wf-about')">About</a>
 			</div>
-			<div class="tabcontent" style="display:block" id="wf-vid">	
+			<div class="tabcontent" id="wf-vid">	
 				<figure>
 					<center><img src="pic/inwork.png"></center>
 					<figcaption>Under Construction!</figcaption>
 				</figure>
 			</div>
-			<div class="tabcontent" id="wf-about">
+			<div class="tabcontent" style="display:block" id="wf-about">
+			<center><h1>Wastefellow</h1></center>
+			<hr style="margin:2px;">
 			<p>
 				Wastefellow is my second animatronic figure, a little dude who lives in a trash can.
 				He's one of my most treasured creations, so I have put a huge expectation on myself to make his
-				video perfect. It's not done yet, but I promise he's really cool, and will be here soon. 
+				video perfect. It's not done yet, but here are some pics in the meantime. 
+			</p>
+			<center><figure>
+				<img src="pic/wf_concept.jpeg">
+				<figcaption>Original Concept Sketch</figcaption>
+			</figure></center>
+			<p>
+				I was directly inspired for this project by 
+				<a href="https://en.wikipedia.org/wiki/Push_the_Talking_Trash_Can" target="_blank">Push the Talking Trash Can</a>
+				, a robotic trash can that would roll around Disneyland and Walt Disney World, talking to guests. I was toying with
+				the idea of wiring little blinking eyes into something, and this form factor is perfectly proportioned to hide all the guts,
+				aside from the fact that building a robot into a trash can is funny.
+			</p>
+			<center><figure>
+				<img src="pic/wf_old.jpeg">
+				<figcaption>Wastefellow's Original Digs</figcaption>
+			</figure></center>
+			<p>
+				The original design used cardboard. It worked well enough to replicate my sketch, but it looked junky 
+				(and not junky in the way that you would want when replicating a trash can.)
 			</p>
 			<p>
-				Watch this space!
+				During the build, I happened to watch a video from Adam Savage's wonderful YouTube channel 
+				<a href="https://www.youtube.com/channel/UCiDJtJKMICpb9B1qf7qjEOA" target="_blank">Tested</a>,
+				in which Adam 
+				<a href="https://www.youtube.com/watch?v=ZfvtGrhYk0I" target="_blank">builds a model spaceship</a>
+				out of a material called styrene. It's an amazing plastic material that's incredibly easy to work
+				with, and perfectly suited for scratch building techy looking objects. (It's what was used to make 
+				basically every spaceship in Star Wars.) It would make a perfect construction material for my monster's home.
+			</p>
+			<center><figure>
+				<img src="pic/wf_unpainted.jpeg">
+				<figcaption></figcaption>
+			</figure></center>
+			<p>
+			Voila! New can. I went a bit overboard on adding techy bits to it, but it's irresistible when working with styrene.
+			It was during the construction of this shell that I decided to go with a sci-fi theme, maybe like
+			a trash can on a derelict space station. An alien hermit crab.
+			</p>
+			<center><figure>
+				<img src="pic/wf_mech.jpeg">
+				<figcaption>The boy</figcaption>
+			</figure></center>
+			<p>
+				Here's V1 of the mech for the robot itself. You might glean his axes of movement from where these servos are
+				placed :) I don't have a pic on-hand, but I eventually redid this with styrene, and shuffled his parts to 
+				fit better in the shell. However, the basic design is the same.
+			</p>
+			<center><figure>
+				<img src="pic/wf_front.jpeg">
+				<figcaption>Fresh Coat of Paint</figcaption>
+			</figure></center>
+			<p>
+				Here's the shell all dolled up. I tried my best to weather it and make it look nice and dingy. 
+			</p>
+			<center><figure>
+				<img src="pic/wf_rear.jpeg">
+				<figcaption></figcaption>
+			</figure></center>
+			<p>
+				And here's the rear. I opted to bring the wires out for practical reasons, and because I thought it looked
+				neat. If you're working in a grungy sci-fi theme then it's always better to expose wires, right?
+			</p>
+			<center><figure>
+				<img src="pic/wf_peek.jpeg">
+				<figcaption></figcaption>
+			</figure></center>
+			<p>
+				Check back for the video later!
 			</p>
 			</div>
 		</div>
 
-		<div id="about-site-window" class="window">
+		<div id="fam-window" class="window">
+			<div class="windowtitle" id="fam-windowtitle">
+				the_fam.jpeg
+				<div class="windowclosebtn" onclick="dragElement(closeWindow(this))"></div>
+			</div>
+			<img style="max-height:400px" src="pic/the_fam.jpeg">
+		</div>
+<div id="about-site-window" class="window">
 			<div class="windowtitle" id="about-site-windowtitle">
 			About This Page
 			<div class="windowclosebtn" onclick="dragElement(closeWindow(this))"></div>
@@ -395,7 +471,7 @@
 			if(!e.target.matches('.dropdiv')){
 				rollUpAll();
 			}
-			if(e.target.parentNode.matches('.window')){
+			if(e.target.matches('.windowtitle')){
 				putOnTop(e.target.parentNode);
 			}
 		}
