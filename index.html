@@ -259,7 +259,34 @@
                 Eye Guy 
                 <div class="windowclosebtn" onclick="dragElement(closeWindow(this)); "></div>
             </div>
-            <iframe width="560" height="315" src="https://www.youtube.com/embed/78fvwOteLCc" frameborder="0" allowfullscreen></iframe>
+            <div class="tabframe">
+				<a onclick="showTab(this, 'eyeguy-vid')">Video</a>
+				<a onclick="showTab(this, 'eyeguy-about')">About</a>
+			</div>
+			<iframe class="tabcontent" id="eyeguy-vid" style="display:block" width="560" height="315" src="https://www.youtube.com/embed/78fvwOteLCc" frameborder="0" allowfullscreen></iframe>
+			<div class="tabcontent" id="eyeguy-about">
+				<h1><center>Eye Guy</center></h1>
+				<hr style="margin:2px">
+				<p> 
+					In 2017, I wanted to start a creative project. I thought a lot about my interests and how 
+					I might incorporate them into one thing. Electronics, programming, film, character 
+					design and plain old physical crafts converged at one juncture that I thought was 
+					particularly exciting: animatronics. I thought it would be a fun challenge to just 
+					try to build something like that from scratch. As an added bonus, I would get to film
+					a video of it in its "natural" habitat. So, I thought up a simple figure.
+				</p>
+
+				<p>
+					Eye Guy is made from a styrofoam ball stuffed with two servos, painted and outfitted
+					with a green cloth eyelid attached to a thin metal arm.
+				</p>
+
+				<p>
+					The fun thing about making things with mixed media like this is that if you get tired
+					of working on one part, you can switch to another. I can't think of many other projects
+					where you get to program servos one second and sew together monster skin another.
+				</p>
+			</div>
         </div>
 
 
@@ -281,8 +308,12 @@
 					<center><img style="max-width:500px" src="pic/tama.jpg">
 					<figcaption>My first Tamagotchi (Not actually, but it was this color)</figcaption></center>
 				</figure>
-				<p>Out of this love for e-monsters, I hatched the idea to create my own v-pet for my desk at work, a v-pet that would not require any care (thus distracting me from my workly duties), that I could watch grow up and evolve during the work day.</p> 
-				<p>Kuchipatchi (named for the first character sprite I was able to display on this hardware, who is also the feature sprite in the image above), is a handmade virtual pet built from a Teensy microcontroller, a 0.96" OLED display, and a 3D-printed shell, with code written in C++.</p>
+				<p>Out of this love for e-monsters, I hatched the idea to create my own v-pet for my desk at work, one that would not require any care (thus distracting me from my workly duties), that I could watch grow up and evolve during the work day.</p> 
+				<p>Kuchipatchi (named for the first character sprite I was able to display on this hardware, and coincidentally the featured sprite in the image above), is a virtual pet built from a Teensy microcontroller, a 0.96" OLED display, and a 3D-printed shell, with code written in C++.</p>
+
+				<p>
+				My first design for this project used an Arduino Nano, and incorporated something like 30 monsters, which was about as much as the Nano's meager 32K of flash memory could hold alongside the code. In order to get more monsters in there, I researched alternatives and landed on the Teensy 3.2, which has the same form factor and comes with a whopping 256K of flash, which would be enough to add as many monsters as I wanted. The current iteration of Kuchipatchi features 148 different possible monsters.  
+				</p>
 			</div>
 		</div>
 
