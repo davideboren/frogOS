@@ -109,7 +109,7 @@
                 background-color: #FFF3EA;
 				font-family: nouv;
 				font-size: 8px;
-				text-rendering:;
+				image-rendering:auto;
 				color: #000;
                 user-select: none;
 
@@ -151,9 +151,10 @@
 			}
 
 			.tabframe {
-				margin: 2px;
+				padding: 2px;
 				text-align: center;
 				color: #333;
+				background-color:#FFCDBA;
 			}
 
 			.tabframe a {
@@ -172,6 +173,8 @@
 
 			.tabcontent {
 				display:none;
+				max-height:500px;
+				overflow-y:scroll;
 			}
 
 			.tabcontent p {
@@ -273,8 +276,13 @@
 			<div class="tabcontent" id="kuchipatchi-about">
 				<h1><center>Kuchipatchi</center></h1>
 				<hr style="margin:2px">
-				<p>I have a lifelong obsession with virtual pets. At the tail end of the rapidly dying V-Pet craze, my parents took me and my siblings to Toys-R-Us, and we happened upon a rack of Tamagotchis that were on clearance for a single dollar each. As a burgeoning tech freak growing up in the Pokemon age, the idea of a little creature in a tiny, self-contained electronic device I could put in my pocket was the coolest thing imaginable. This chance event sent me all the way down the virtual pet rabbit hole, which I have never left. Out of this love for e-monsters, I hatched the idea to create my own v-pet for my desk at work, a v-pet that would not require any care (thus distracting me from my workly duties), that I could watch grow up and evolve during the work day.</p> 
-				<p>Kuchipatchi (named for the first character sprite I was able to display on this hardware), is a handmade virtual pet built from a Teensy microcontroller, a 0.96" OLED display, and a 3D-printed shell, with code written in C++.</p>
+				<p>I have a lifelong obsession with virtual pets. At the tail end of the rapidly dying V-Pet craze, my parents took me and my siblings to Toys-R-Us, and we happened upon a rack of Tamagotchis that were on clearance for a single dollar each. As a burgeoning tech freak growing up in the Pokemon age, the idea of a little creature in a tiny, self-contained electronic device I could put in my pocket was the coolest thing imaginable. This chance event sent me all the way down the virtual pet rabbit hole, which I have never left. </p>
+				<figure>
+					<center><img style="max-width:500px" src="pic/tama.jpg">
+					<figcaption>My first Tamagotchi (Not actually, but it was this color)</figcaption></center>
+				</figure>
+				<p>Out of this love for e-monsters, I hatched the idea to create my own v-pet for my desk at work, a v-pet that would not require any care (thus distracting me from my workly duties), that I could watch grow up and evolve during the work day.</p> 
+				<p>Kuchipatchi (named for the first character sprite I was able to display on this hardware, who is also the feature sprite in the image above), is a handmade virtual pet built from a Teensy microcontroller, a 0.96" OLED display, and a 3D-printed shell, with code written in C++.</p>
 			</div>
 		</div>
 
