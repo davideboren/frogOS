@@ -180,7 +180,7 @@
 				display:none;
 				max-height:500px;
 				overflow-y:scroll;
-				max-width:552px;
+				max-width:600px;
 			}
 
 			.tabcontent p {
@@ -292,9 +292,10 @@
 
 				<p>
 					The fun thing about making things with mixed media like this is that if you get tired
-					of working on one part, you can switch to another. I can't think of many other projects
-					where you get to program servos one second and sew together monster skin another.
+					of working on one part, you can switch to another. With Eye Guy I was Programming one 
+					second, and sewing the next.
 				</p>
+
 			</div>
         </div>
 
@@ -311,6 +312,7 @@
 			<iframe class="tabcontent" id="kuchipatchi-vid" style="display:block;" width="560" height="315" src="https://www.youtube.com/embed/_wBKRQK_Ggk" frameborder="0" allowfullscreen></iframe>
 			<div class="tabcontent" id="kuchipatchi-about">
 				<h1><center>Kuchipatchi</center></h1>
+				<center><a href="https://github.com/davideboren/kuchipatchi_oop" target="_blank">Github</a></center>
 				<hr style="margin:2px">
 				<p>I have a lifelong obsession with virtual pets. At the tail end of the rapidly dying V-Pet craze, my parents took me and my siblings to Toys-R-Us, and we happened upon a rack of Tamagotchis that were on clearance for a single dollar each. As a burgeoning tech freak growing up in the Pokemon age, the idea of a little creature in a tiny, self-contained electronic device I could put in my pocket was the coolest thing imaginable. This chance event sent me all the way down the virtual pet rabbit hole, which I have never left. </p>
 				<figure>
@@ -318,10 +320,55 @@
 					<figcaption>My first Tamagotchi (Not actually, but it was this color)</figcaption></center>
 				</figure>
 				<p>Out of this love for e-monsters, I hatched the idea to create my own v-pet for my desk at work, one that would not require any care (thus distracting me from my workly duties), that I could watch grow up and evolve during the work day.</p> 
-				<p>Kuchipatchi (named for the first character sprite I was able to display on this hardware, and coincidentally the featured sprite in the image above), is a virtual pet built from a Teensy microcontroller, a 0.96" OLED display, and a 3D-printed shell, with code written in C++.</p>
+
+				<figure>
+                    <center><img style="max-width:500px" src="pic/ku_design.jpeg">
+                    <figcaption>Kuchipatchi</figcaption></center>
+                </figure>
+
+				<p>Kuchipatchi (named for the first character sprite I was able to display on this hardware), is a virtual pet built from a Teensy microcontroller, a 0.96" OLED display, and a 3D-printed shell, with code written in C++.</p>
 
 				<p>
-				My first design for this project used an Arduino Nano, and incorporated something like 30 monsters, which was about as much as the Nano's meager 32K of flash memory could hold alongside the code. In order to get more monsters in there, I researched alternatives and landed on the Teensy 3.2, which has the same form factor and comes with a whopping 256K of flash, which would be enough to add as many monsters as I wanted. The current iteration of Kuchipatchi features 148 different possible monsters.  
+					My first design for this project used an Arduino Pro Micro clone, based on the Atmel ATmega32U4. 
+					That version incorporated something like 30 monsters, which was about as much as the 32U4's meager 32K of 
+					flash memory could hold alongside the code. 
+				</p>
+				<figure>
+                    <center><img src="pic/ku_breadboard.jpeg">
+                    <figcaption>Initial breadboard with yet another Arduino variant, the Nano</figcaption></center>
+                </figure>
+				<figure>
+                    <center><img style="max-width:500px" src="pic/ku_soldered.jpeg">
+                    <figcaption>All soldered up</figcaption></center>
+                </figure>
+				
+				<p>
+					I designed the shell in Fusion 360, 3D printed it with a Prusa i3 MK2, and painted it by hand.
+				<p>
+					Unable to stop at 30 monsters, I researched Arduino alternatives, and discovered the Teensy 3.2. The Teensy has the same 
+					form factor, runs on Arduino's code, and comes with a whopping 256K of flash, which would be enough to add as many 
+					monsters as I wanted. As of right now, Kuchipatchi features 148 different possible monsters.  
+				</p>
+				<p>
+					The added space also afforded me some more complexity with the code. The original version was very basic, a short
+					snippet of procedural C++, just supporting monsters walking back and forth, evolving, and pooping 
+					(it wouldn't be a Tamagotchi if they didn't poop.)
+					In order to add more modularity, I started from scratch on the code, opting for an OOP approach. With this template
+					I could add in new effects, events, and behaviors easily.
+				</p>
+
+				<p>
+					Currently, Kuchipatchi supports two biomes: bubbles for underwater monsters, and snow for cold-climate monsters.
+					It also supports visitors. Every 5 minutes, there's a small chance that a friend will come by to visit,
+					a random monster that is classified in the same lifestage (and biome) as your primary monster.
+				</p>
+				<figure>
+                    <center><img style="max-width:500px" src="pic/ku_fish.jpeg">
+                    <figcaption>Kingyotchi, from the Tamagotchi Ocean Device</figcaption></center>
+                </figure>
+				<p>
+					 I programmed each monster's lifespan to last about 40 hours across 5-6 stages, so each work week I would see 
+					 roughly one monster grow from egg to adult. Kuchipatchi has been chugging away at my work desk ever since!
 				</p>
 			</div>
 		</div>
