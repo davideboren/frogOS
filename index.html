@@ -188,6 +188,12 @@
 				max-width:550px;
 			}
 
+			.blobby {
+				position:absolute;
+				bottom: 0px;
+			}
+			
+
         </style>
     </head>
 
@@ -524,6 +530,7 @@
 			</center>
 		</div>
 
+	<img class="blobby" id="blobby" src="pic/blobby.gif" onclick="blobbyJump()">
 
     <script>
 		<!--Dropdowns-->
@@ -662,6 +669,16 @@
 			}
 
 			chosentab.style.display = "block";
+		}
+
+		function blobbyJump(){
+			document.getElementById("blobby").src = "pic/blobby_jump.gif";
+
+			function resetBlobby(){
+				document.getElementById("blobby").src = "pic/blobby.gif";
+			}
+
+			setTimeout(resetBlobby,500);
 		}
 
     </script>
