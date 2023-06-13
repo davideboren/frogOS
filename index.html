@@ -449,10 +449,10 @@
 			<div class="windowclosebtn" onclick="dragElement(closeWindow(this))"></div>
 			</div>
 			<div class="tabframe">
-				<a onclick="showTab(this, 'dg-vid')">Video</a>
+				<a onclick="showTab(this, 'dg-scr')">Screenshots</a>
 				<a onclick="showTab(this, 'dg-about')">About</a>
 			</div>
-			<div class="tabcontent" id="dg-vid" style="max-width:800px">	
+			<div class="tabcontent" id="dg-scr" style="max-width:800px">	
 				<img width=800px 
 				style="image-rendering:smooth" src="https://user-images.githubusercontent.com/7462768/244729614-c17890f0-5495-4b67-a3d4-ae71261cb358.gif">
 			</div>
@@ -662,9 +662,6 @@
 			}
 		}
 
-
-        <!--Clock-->
-
         function getTime() {
             const today = new Date();
             let h = today.getHours();
@@ -685,8 +682,6 @@
             if (i < 10) { i = "0" + i };
             return i;
         }
-
-        <!--Windows-->
 
 		var allWindows = document.getElementsByClassName('window');
 		for (var i=0; i< allWindows.length; i++){
