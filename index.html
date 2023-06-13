@@ -404,11 +404,11 @@
 			<p>
 				Tyrannomon is a direct successor to Kuchipatchi, another desktop virtual pet.<br>
 				But this time, it's in 
-				<span style="color:#f00">C</span>
-				<span style="color:#f0f">O</span>
+				<span style="color:#e00">C</span>
+				<span style="color:#b0b">O</span>
 				<span style="color:#090">L</span>
-				<span style="color:#660">O</span>
-				<span style="color:#07f">R</span>
+				<span style="color:#f60">O</span>
+				<span style="color:#06e">R</span>
 				!
 			</p>
 			<p>
@@ -444,6 +444,48 @@
 			</div>
 		</div>
 
+		<div id="dg-window" class="window" >
+			<div class="windowtitle" id="dg-windowtitle">
+			Digitizer
+			<div class="windowclosebtn" onclick="dragElement(closeWindow(this))"></div>
+			</div>
+			<div class="tabframe">
+				<a onclick="showTab(this, 'dg-vid')">Video</a>
+				<a onclick="showTab(this, 'dg-about')">About</a>
+			</div>
+			<div class="tabcontent" id="dg-vid">	
+				<figure>
+					<center><img src="pic/inwork.png"></center>
+					<figcaption>Under Construction!</figcaption>
+				</figure>
+			</div>
+			<div class="tabcontent" style="display:block " id="dg-about">
+			<center><h1>Digitizer</h1></center>
+			<center><a href="https://github.com/davideboren/digitizer" target="_blank">Github</a></center>
+			<hr style="margin:2px;">
+			<p>
+				Digitizer is a GUI used for building out evolution trees for the Tyrannomon device.
+			</p>
+			<p>
+				This guy is a drag and drop UI. You can plop any of the available sprites into the sandbox
+				area, change their backgrounds, then link them together as evolutions 
+				and export to the header file used in Tyrannomon.
+			</p>
+			<p>
+				For Kuchipatchi, I manually coded the evo paths for each monster line. This was a 
+				tedious and time-consuming task.
+				I didn't want to go through the same process again, so I started experimenting 
+				with dumping the sprites into pygame, thus Digitizer was born.
+			</p>
+			<p>
+				Ironically, I ended up spending a lot more time on Digitizer than Tyrannomon itself.
+				I think the work paid off though. The app is really fun to use, and getting to see
+				evolution trees laid out right in front of your eyes is fun! 
+				This way, you can really get a birds-eye of the tree's theme, see if your choices
+				make sense, and admire your evolutionary craftsmanship.
+			</p>
+			</div>
+		</div>
 
         <div id="jp-window" class="window">
             <div class="windowtitle" id="jp-windowtitle"> 
@@ -600,6 +642,7 @@
 	<img class="blobby" id="blobby" src="pic/blobby.gif" onclick="blobbyJump()">
 
     <script>
+		var window_pos = 25
 		<!--Dropdowns-->
 		function rollUpAll(){
 			var allDropdowns = document.getElementsByClassName("show-drop");
@@ -692,14 +735,17 @@
 		}
 
 		function openWindow(elemName){
+			window_pos += 1;
 			var wdw = document.getElementById(elemName);
+			wdw_str = window_pos.toString() + "%";
 			wdw.style.display = "block";
-			wdw.style.top = "25%";
-			wdw.style.left = "25%";
+			wdw.style.top = wdw_str;
+			wdw.style.left = wdw_str;
 			putOnTop(wdw);
 		}
 
         function closeWindow(elem){
+			window_pos -= 1;
 			var wdw = elem.parentNode.parentNode;
 			wdw.style.display = "none";
 			if(wdw.innerHTML.includes("youtube")){
