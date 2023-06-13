@@ -391,13 +391,10 @@
 				<a onclick="showTab(this, 'ty-vid')">Video</a>
 				<a onclick="showTab(this, 'ty-about')">About</a>
 			</div>
-			<div class="tabcontent" id="ty-vid">	
-				<figure>
-					<center><img src="pic/inwork.png"></center>
-					<figcaption>Under Construction!</figcaption>
-				</figure>
+			<div class="tabcontent" style="display:block" id="ty-vid">	
+				<iframe width="560" height="315" src="https://www.youtube.com/embed/Yfib0rVsjbA" frameborder="0" allowfullscreen></iframe>
 			</div>
-			<div class="tabcontent" style="display:block " id="ty-about">
+			<div class="tabcontent" id="ty-about">
 			<center><h1>Tyrannomon</h1></center>
 			<center><a href="https://github.com/davideboren/Tyrannomon" target="_blank">Github</a></center>
 			<hr style="margin:2px;">
@@ -412,22 +409,24 @@
 				!
 			</p>
 			<p>
-				Tyrannomon is built with a 1.44" color TFT + SD reader, and an ESP32.<br>
+				Tyrannomon is built with a 
+				<a href="https://www.adafruit.com/product/2088" target="_blank">
+				1.44" color TFT + SD reader</a>, and an ESP32.<br>
 				It was made possible by this excellent 
-				<a href="https://withthewill.net/threads/full-color-digimon-dot-sprites.25843/">
-				sprite resource 
-				</a> by a user named Tortoiseshel.<br>
+				<a href="https://withthewill.net/threads/full-color-digimon-dot-sprites.25843/" target="_blank">
+				sprite resource.
+				</a> 
 			</p>
 			<p>
 				The big hurdle this time around was creating the sprite handling system. 
 				<br>
 				Kuchipatchi had 1-bit bitmap sprites. represented in code directly by
-				<a href="https://github.com/davideboren/kuchipatchi_oop/blob/master/sprites.h">giant blocks of hex.</a>
+				<a href="https://github.com/davideboren/kuchipatchi_oop/blob/master/sprites.h" target="_blank">giant blocks of hex.</a>
 				<br>
-				Tyrannomon utilizes hundreds of sprite sheets. To handle these, Tyrannomon needs
-				<a href="https://github.com/davideboren/Tyrannomon/tree/master/lib/MrBitmap"> a bitmap file reader,</a>
+				On the other hand, Tyrannomon utilizes hundreds of PNG sprite sheets. To handle these, Tyrannomon needs
+				<a href="https://github.com/davideboren/Tyrannomon/tree/master/lib/MrBitmap" target="_blank"> a bitmap file reader,</a>
 				and 
-				<a href="https://github.com/davideboren/Tyrannomon/blob/master/lib/TFT_eSprite_X/">
+				<a href="https://github.com/davideboren/Tyrannomon/blob/master/lib/TFT_eSprite_X/" target="_blank">
 					extra sprite handling logic
 				</a>
 				to enable sprite sheet functionality with transparency.
@@ -453,13 +452,11 @@
 				<a onclick="showTab(this, 'dg-vid')">Video</a>
 				<a onclick="showTab(this, 'dg-about')">About</a>
 			</div>
-			<div class="tabcontent" id="dg-vid">	
-				<figure>
-					<center><img src="pic/inwork.png"></center>
-					<figcaption>Under Construction!</figcaption>
-				</figure>
+			<div class="tabcontent" id="dg-vid" style="max-width:800px">	
+				<img width=800px 
+				style="image-rendering:smooth" src="https://user-images.githubusercontent.com/7462768/244729614-c17890f0-5495-4b67-a3d4-ae71261cb358.gif">
 			</div>
-			<div class="tabcontent" style="display:block " id="dg-about">
+			<div class="tabcontent" id="dg-about" style="display:block">
 			<center><h1>Digitizer</h1></center>
 			<center><a href="https://github.com/davideboren/digitizer" target="_blank">Github</a></center>
 			<hr style="margin:2px;">
