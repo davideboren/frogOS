@@ -241,9 +241,11 @@
             <div class="icon" ondblclick="openWindow('aboutme-window')"><img src="icon/file.png">About Me</div>
             <div class="icon" id="eyeguy-icon" ondblclick="openWindow('eyeguy-window')"><img src="icon/eyeguy_v2.png">Eye Guy</div>
             <div class="icon" id="kuchipatchi-icon" ondblclick="openWindow('kuchipatchi-window')"><img src="icon/kuchipatchi_v2.png">Kuchipatchi</div>
+            <div class="icon" id="ty-icon" ondblclick="openWindow('ty-window')"><img src="icon/tyrannomon.png">Tyrannomon</div>
+            <div class="icon" id="dg-icon" ondblclick="openWindow('dg-window')"><img src="icon/digitizer2.png">Digitizer</div>
             <div class="icon" id="jp-icon" ondblclick="openWindow('jp-window')"><img src="icon/jp.png">Jurassic Park Truck</div>
             <div class="icon" id="wf-icon" ondblclick="openWindow('wf-window')"><img src="icon/wastefellow_v2.png">Wastefellow</div>
-            <div class="icon" id="fam-icon" ondblclick="openWindow('fam-window')"><img src="icon/img.png">the_fam.jpeg</div>
+            <div class="icon" id="fam-icon" ondblclick="openWindow('fam-window')"><img src="icon/img.png">rip_kevy.jpeg</div>
         </div>
 
 		<!--Create Windows-->
@@ -252,7 +254,7 @@
             <div class="windowtitle" id="aboutme-windowtitle"> 
                 About Me <div class="windowclosebtn" onclick="closeWindow(this)"></div>
             </div>
-			<p contenteditable="true">Yo! My name's David. I'm a software engineer living in Richardson, TX with my lovely wife Robyn and our dog Kevin.
+			<p contenteditable="true">Yo! My name's David. I'm a software engineer living in Richardson, TX with my lovely wife Robyn, our son Daniel, and our dog May.
 			</p>
 			<p contenteditable="true"> I love making things. </p>
 
@@ -379,6 +381,69 @@
 				</p>
 			</div>
 		</div>
+
+		<div id="ty-window" class="window" >
+			<div class="windowtitle" id="ty-windowtitle">
+			Tyrannomon
+			<div class="windowclosebtn" onclick="dragElement(closeWindow(this))"></div>
+			</div>
+			<div class="tabframe">
+				<a onclick="showTab(this, 'ty-vid')">Video</a>
+				<a onclick="showTab(this, 'ty-about')">About</a>
+			</div>
+			<div class="tabcontent" id="ty-vid">	
+				<figure>
+					<center><img src="pic/inwork.png"></center>
+					<figcaption>Under Construction!</figcaption>
+				</figure>
+			</div>
+			<div class="tabcontent" style="display:block " id="ty-about">
+			<center><h1>Tyrannomon</h1></center>
+			<center><a href="https://github.com/davideboren/Tyrannomon" target="_blank">Github</a></center>
+			<hr style="margin:2px;">
+			<p>
+				Tyrannomon is a direct successor to Kuchipatchi, another desktop virtual pet.<br>
+				But this time, it's in 
+				<span style="color:#f00">C</span>
+				<span style="color:#f0f">O</span>
+				<span style="color:#090">L</span>
+				<span style="color:#660">O</span>
+				<span style="color:#07f">R</span>
+				!
+			</p>
+			<p>
+				Tyrannomon is built with a 1.44" color TFT + SD reader, and an ESP32.<br>
+				It was made possible by this excellent 
+				<a href="https://withthewill.net/threads/full-color-digimon-dot-sprites.25843/">
+				sprite resource 
+				</a> by a user named Tortoiseshel.<br>
+			</p>
+			<p>
+				The big hurdle this time around was creating the sprite handling system. 
+				<br>
+				Kuchipatchi had 1-bit bitmap sprites. represented in code directly by
+				<a href="https://github.com/davideboren/kuchipatchi_oop/blob/master/sprites.h">giant blocks of hex.</a>
+				<br>
+				Tyrannomon utilizes hundreds of sprite sheets. To handle these, Tyrannomon needs
+				<a href="https://github.com/davideboren/Tyrannomon/tree/master/lib/MrBitmap"> a bitmap file reader,</a>
+				and 
+				<a href="https://github.com/davideboren/Tyrannomon/blob/master/lib/TFT_eSprite_X/">
+					extra sprite handling logic
+				</a>
+				to enable sprite sheet functionality with transparency.
+				<br>
+				Everything else is quite similar to Kuchipatchi.
+			</p>
+			<p>
+				When confronted with the daunting task of manually populating evolution trees once more 
+				(as I did in Kuchipatchi), I decided it would be more fun to create a whole application 
+				for that express purpose.
+				<br>
+				Digitizer has its own little page here, so check it out! 
+			</p>
+			</div>
+		</div>
+
 
         <div id="jp-window" class="window">
             <div class="windowtitle" id="jp-windowtitle"> 
@@ -509,12 +574,13 @@
 
 		<div id="fam-window" class="window">
 			<div class="windowtitle" id="fam-windowtitle">
-				the_fam.jpeg
+				rip_kevy.jpeg
 				<div class="windowclosebtn" onclick="dragElement(closeWindow(this))"></div>
 			</div>
 			<img style="max-height:400px" src="pic/the_fam.jpeg">
 		</div>
-<div id="about-site-window" class="window" style="display:block">
+
+		<div id="about-site-window" class="window" style="display:block">
 			<div class="windowtitle" id="about-site-windowtitle">
 			About This Page
 			<div class="windowclosebtn" onclick="dragElement(closeWindow(this))"></div>
