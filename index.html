@@ -449,12 +449,11 @@
 			<div class="windowclosebtn" onclick="dragElement(closeWindow(this))"></div>
 			</div>
 			<div class="tabframe">
-				<a onclick="showTab(this, 'dg-scr')">Screenshots</a>
+				<a onclick="showTab(this, 'dg-scr')">Video</a>
 				<a onclick="showTab(this, 'dg-about')">About</a>
 			</div>
 			<div class="tabcontent" id="dg-scr" style="max-width:800px">	
-				<img width=800px 
-				style="image-rendering:smooth" src="https://user-images.githubusercontent.com/7462768/244729614-c17890f0-5495-4b67-a3d4-ae71261cb358.gif">
+				<iframe class="tabcontent" style="display:block" id="dg-vid"width="560" height="315" src="https://youtu.be/876GeJYhmIk" frameborder="0" allowfullscreen></iframe>
 			</div>
 			<div class="tabcontent" id="dg-about" style="display:block">
 			<center><h1>Digitizer</h1></center>
